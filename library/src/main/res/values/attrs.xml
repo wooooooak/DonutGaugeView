@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DonutGaugeView">
+        <attr name="dg_stroke_width" format="dimension|reference" />
+        <attr name="dg_start_value" format="float" />
+        <attr name="dg_end_value" format="float" />
+        <attr name="dg_back_circle_color" format="color|reference" />
+        <attr name="dg_front_circle_color" format="color|reference" />
+        <attr name="dg_complete_circle_color" format="color|reference"/>
+        <attr name="dg_unit_text" format="string|reference" />
+        <attr name="dg_unit_text_size" format="dimension|reference" />
+        <attr name="dg_middle_text_size" format="dimension|reference" />
+        <attr name="dg_middle_text_color" format="color|reference" />
+        <attr name="dg_unit_text_color" format="color|reference" />
+        <attr name="dg_top_text" format="string|reference" />
+        <attr name="dg_top_text_color" format="color|reference"/>
+        <attr name="dg_bottom_text" format="string|reference" />
+        <attr name="dg_bottom_text_color" format="color|reference"/>
+        <attr name="dg_top_middle_margin" format="dimension|reference" />
+        <attr name="dg_middle_bottom_margin" format="dimension|reference" />
+        <attr name="dg_anim_duration" format="integer" />
+
+    </declare-styleable>
+</resources>

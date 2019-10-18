@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="donut_size">250dp</dimen>
+    <dimen name="donut_stroke_size">15dp</dimen>
+    <dimen name="dg_middle_text_margin">2dp</dimen>
+    <dimen name="dg_middle_text_size">20dp</dimen>
+    <dimen name="dg_default_text_size">13dp</dimen>
+    <dimen name="dg_top_middle_text_margin">12dp</dimen>
+    <dimen name="dg_middle_bottom_text_margin">4dp</dimen>
+</resources>

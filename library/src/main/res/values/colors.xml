@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dg_blue">#127fff</color>
+    <color name="dg_background">#e0e0df</color>
+    <color name="dg_complete">#ff7815</color>
+    <color name="dg_black">#000000</color>
+    <color name="dg_gray">#848484</color>
+</resources>
