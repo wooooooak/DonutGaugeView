@@ -41,9 +41,11 @@ class DonutGaugeView @JvmOverloads constructor(
 
     var topText = ""
     private var topTextColor = ContextCompat.getColor(context, R.color.dg_black)
+    private var topTextSize = resources.getDimensionPixelSize(R.dimen.dg_default_text_size)
 
     var bottomText = ""
     private var bottomTextColor = ContextCompat.getColor(context, R.color.dg_gray)
+    private var bottomTextSize = resources.getDimensionPixelSize(R.dimen.dg_default_text_size)
 
     private var marginTopMiddleText =
         resources.getDimensionPixelSize(R.dimen.dg_top_middle_text_margin)
@@ -147,6 +149,7 @@ class DonutGaugeView @JvmOverloads constructor(
         paint.run {
             style = Paint.Style.FILL
             color = topTextColor
+            textSize = topTextSize.toFloat()
             val topText = topText
             val topTextXPos = width / 2 - (paint.measureText(topText) / 2)
             val topTextYPos = middleTextYPos - paint.textSize - marginTopMiddleText
@@ -155,6 +158,7 @@ class DonutGaugeView @JvmOverloads constructor(
         // Start Bottom Text rendering
         paint.run {
             color = bottomTextColor
+            textSize = bottomTextSize.toFloat()
             val bottomText = bottomText
             val bottomTextXPos = width / 2 - (paint.measureText(bottomText) / 2)
             val bottomTextYPos = middleTextYPos + paint.textSize + marginMiddleBottomText
@@ -218,10 +222,14 @@ class DonutGaugeView @JvmOverloads constructor(
                 unitTextColor =
                     getColor(R.styleable.DonutGaugeView_dg_unit_text_color, unitTextColor)
                 topText = getString(R.styleable.DonutGaugeView_dg_top_text) ?: ""
+                topTextSize = getDimensionPixelSize(R.styleable.DonutGaugeView_dg_top_text_size,
+                    topTextSize)
                 topTextColor = getColor(R.styleable.DonutGaugeView_dg_top_text_color, topTextColor)
                 bottomText = getString(R.styleable.DonutGaugeView_dg_bottom_text) ?: ""
                 bottomTextColor =
                     getColor(R.styleable.DonutGaugeView_dg_bottom_text_color, bottomTextColor)
+                bottomTextSize = getDimensionPixelSize(R.styleable
+                    .DonutGaugeView_dg_bottom_text_size, bottomTextSize)
                 marginTopMiddleText = getDimensionPixelSize(
                     R.styleable
                         .DonutGaugeView_dg_top_middle_margin, marginTopMiddleText
