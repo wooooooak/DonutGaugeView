@@ -4,6 +4,7 @@ import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
@@ -28,6 +29,7 @@ class DonutGaugeView @JvmOverloads constructor(
 
     private var backgroundCircleColor = ContextCompat.getColor(context, R.color.dg_background)
     private var frontCircleColor = ContextCompat.getColor(context, R.color.dg_blue)
+    private var unCompleteCircleColor = ContextCompat.getColor(context, R.color.dg_blue)
     private var completeCircleColor = ContextCompat.getColor(context, R.color.dg_complete)
 
     private lateinit var unitText: String
@@ -52,6 +54,7 @@ class DonutGaugeView @JvmOverloads constructor(
 
     init {
         initAttributes()
+        setBackgroundColor(Color.TRANSPARENT)
         maxValue?.let {
             initValue(currentValue.toFloat(), it)
         }
@@ -99,7 +102,7 @@ class DonutGaugeView @JvmOverloads constructor(
 
     fun updateValue(value: Float) {
         maxValue?.let { total ->
-            frontCircleColor = if (value >= total) completeCircleColor else frontCircleColor
+            frontCircleColor = if (value >= total) completeCircleColor else unCompleteCircleColor
             val startRatio = currentRatio
             val endRatio = (value / total) * 360
             val valueOffset = endRatio - startRatio
@@ -204,6 +207,7 @@ class DonutGaugeView @JvmOverloads constructor(
                 )
                 frontCircleColor =
                     getColor(R.styleable.DonutGaugeView_dg_front_circle_color, frontCircleColor)
+                unCompleteCircleColor = frontCircleColor
                 completeCircleColor =
                     getColor(
                         R.styleable.DonutGaugeView_dg_complete_circle_color,

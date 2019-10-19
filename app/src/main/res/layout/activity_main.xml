@@ -11,7 +11,8 @@
         android:id="@+id/donutGaugeView1"
         android:layout_width="180dp"
         android:layout_height="180dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
         app:dg_bottom_text="/100%"
         app:dg_end_value="100"
         app:dg_front_circle_color="@color/colorAccent"
@@ -40,12 +41,15 @@
         android:id="@+id/lazy_donut_gauge_view"
         android:layout_width="180dp"
         android:layout_height="180dp"
-        android:layout_marginTop="52dp"
-        app:dg_start_value="0"
-        app:dg_end_value="250"
-        app:dg_top_text="Mail"
+        android:layout_marginTop="8dp"
+        app:dg_stroke_width="28dp"
         app:dg_bottom_text="/250"
-        app:layout_constraintStart_toStartOf="parent"
+        app:dg_end_value="250"
+        app:dg_start_value="0"
+        app:dg_top_text="Mail"
+        app:layout_constraintEnd_toEndOf="@+id/donutGaugeView1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/donutGaugeView1"
         app:layout_constraintTop_toBottomOf="@+id/donutGaugeView1" />
 
     <Button
@@ -59,6 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/lazy_donut_gauge_view" />
 
     <wooooooak.com.library.DonutGaugeView
+        android:id="@+id/donutGaugeView2"
         android:layout_width="180dp"
         android:layout_height="180dp"
         app:dg_back_circle_color="#ffffff"
@@ -71,4 +76,34 @@
         app:layout_constraintHorizontal_bias="0.686"
         app:layout_constraintStart_toStartOf="@+id/donutGaugeView"
         app:layout_constraintTop_toTopOf="@+id/lazy_donut_gauge_view" />
+
+    <wooooooak.com.library.DonutGaugeView
+        android:id="@+id/donutGaugeView5"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="12dp"
+        app:dg_bottom_text="max 1000"
+        app:dg_bottom_text_color="@color/colorAccent"
+        app:dg_end_value="1000"
+        app:dg_front_circle_color="#241255"
+        app:dg_start_value="0"
+        app:dg_middle_text_size="30dp"
+        app:dg_anim_duration="500"
+        app:layout_constraintEnd_toEndOf="@+id/donutGaugeView2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/donutGaugeView2"
+        app:layout_constraintTop_toBottomOf="@+id/donutGaugeView2" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:max="1000"
+        android:progress="0"
+        app:layout_constraintEnd_toEndOf="@+id/donutGaugeView5"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/donutGaugeView5"
+        app:layout_constraintTop_toBottomOf="@+id/donutGaugeView5" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
