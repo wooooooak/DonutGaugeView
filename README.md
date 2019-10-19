@@ -70,6 +70,7 @@ In this method, `End value` that you set before is kept. Only the current value 
 #### more)
 
 `dg_complete_circle_color`: front_circle_color when ration is 100%
+
 `dg_anim_duration`: animation time - 1000 is 1s
 
 ## Contribution
