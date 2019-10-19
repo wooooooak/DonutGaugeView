@@ -1,8 +1,8 @@
 package wooooooak.com.donutgaugeview
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.SeekBar
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import wooooooak.com.library.DonutGaugeView
 
@@ -26,6 +26,13 @@ class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
 
         donutGaugeViewWitSeekBar = donutGaugeView5
         seekBar.setOnSeekBarChangeListener(this)
+
+        //         Reset some data and Redraw
+//        lazyDonutGaugeView.run {
+//            topText = "new top"
+//            bottomText = "200"
+//            initValue(20f, 50f)
+//        }
     }
 
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {

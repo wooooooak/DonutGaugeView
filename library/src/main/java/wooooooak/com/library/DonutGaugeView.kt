@@ -39,10 +39,10 @@ class DonutGaugeView @JvmOverloads constructor(
     private var middleTextColor = ContextCompat.getColor(context, R.color.dg_black)
     private var middleTextSize = resources.getDimensionPixelSize(R.dimen.dg_middle_text_size)
 
-    private lateinit var topText: String
+    var topText = ""
     private var topTextColor = ContextCompat.getColor(context, R.color.dg_black)
 
-    private var bottomText = ""
+    var bottomText = ""
     private var bottomTextColor = ContextCompat.getColor(context, R.color.dg_gray)
 
     private var marginTopMiddleText =
@@ -59,6 +59,7 @@ class DonutGaugeView @JvmOverloads constructor(
             initValue(currentValue.toFloat(), it)
         }
     }
+
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val widthSize = MeasureSpec.getSize(widthMeasureSpec)
@@ -161,7 +162,7 @@ class DonutGaugeView @JvmOverloads constructor(
         }
     }
 
-    private fun initValue(_currentValue: Float, _maxValue: Float) {
+    fun initValue(_currentValue: Float, _maxValue: Float) {
         maxValue = _maxValue
         val endRatio = (_currentValue / _maxValue) * 360
         if (_currentValue >= _maxValue) {
