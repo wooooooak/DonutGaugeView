@@ -27,7 +27,7 @@ dependencies {
 }
 ```
 
-The latest version is 1.0.0. Checkout [here](https://github.com/wooooooak/DonutGaugeView/releases)
+The latest version is 1.0.1. Checkout [here](https://github.com/wooooooak/DonutGaugeView/releases)
 
 ## Usage
 
