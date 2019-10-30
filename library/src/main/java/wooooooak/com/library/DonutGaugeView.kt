@@ -20,8 +20,8 @@ class DonutGaugeView @JvmOverloads constructor(
     _attributeSet,
     _defStyle
 ) {
-    private var currentValue = 0
-    private var maxValue: Float? = null
+    var currentValue = 0
+    var maxValue: Float? = 1000f
     private var currentRatio = 0f
 
     private var donutSize = resources.getDimensionPixelSize(R.dimen.donut_size)
@@ -61,7 +61,6 @@ class DonutGaugeView @JvmOverloads constructor(
             initValue(currentValue.toFloat(), it)
         }
     }
-
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val widthSize = MeasureSpec.getSize(widthMeasureSpec)
@@ -182,6 +181,7 @@ class DonutGaugeView @JvmOverloads constructor(
             frontCircleColor = completeCircleColor
             invalidate()
         } else {
+            frontCircleColor = unCompleteCircleColor
             ValueAnimator.ofFloat(0f, 1f).apply {
                 duration = animationDuration
                 addUpdateListener {
@@ -222,14 +222,18 @@ class DonutGaugeView @JvmOverloads constructor(
                 unitTextColor =
                     getColor(R.styleable.DonutGaugeView_dg_unit_text_color, unitTextColor)
                 topText = getString(R.styleable.DonutGaugeView_dg_top_text) ?: ""
-                topTextSize = getDimensionPixelSize(R.styleable.DonutGaugeView_dg_top_text_size,
-                    topTextSize)
+                topTextSize = getDimensionPixelSize(
+                    R.styleable.DonutGaugeView_dg_top_text_size,
+                    topTextSize
+                )
                 topTextColor = getColor(R.styleable.DonutGaugeView_dg_top_text_color, topTextColor)
                 bottomText = getString(R.styleable.DonutGaugeView_dg_bottom_text) ?: ""
                 bottomTextColor =
                     getColor(R.styleable.DonutGaugeView_dg_bottom_text_color, bottomTextColor)
-                bottomTextSize = getDimensionPixelSize(R.styleable
-                    .DonutGaugeView_dg_bottom_text_size, bottomTextSize)
+                bottomTextSize = getDimensionPixelSize(
+                    R.styleable
+                        .DonutGaugeView_dg_bottom_text_size, bottomTextSize
+                )
                 marginTopMiddleText = getDimensionPixelSize(
                     R.styleable
                         .DonutGaugeView_dg_top_middle_margin, marginTopMiddleText
@@ -251,5 +255,4 @@ class DonutGaugeView @JvmOverloads constructor(
             }
         }
     }
-
 }

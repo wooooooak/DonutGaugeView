@@ -3,21 +3,33 @@ package wooooooak.com.donutgaugeview
 import android.os.Bundle
 import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import kotlinx.android.synthetic.main.activity_main.*
+import wooooooak.com.donutgaugeview.databinding.ActivityMainBinding
 import wooooooak.com.library.DonutGaugeView
 
 class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
 
     private var lazyValue = 50f
 
+    lateinit var binding: ActivityMainBinding
     private lateinit var lazyDonutGaugeView: DonutGaugeView
     private lateinit var donutGaugeViewWitSeekBar: DonutGaugeView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
+        // databinding exmaple
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.run {
+            testValue = "test Value"
+            startValue = 60f
+            endValue = 100f
+            lifecycleOwner = this@MainActivity
+            executePendingBindings()
+        }
 
+        // not databinding exmaple
         lazyDonutGaugeView = lazy_donut_gauge_view
         lazy_button.setOnClickListener {
             lazyDonutGaugeView.updateValue(lazyValue)
