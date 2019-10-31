@@ -219,6 +219,8 @@ class DonutGaugeView @JvmOverloads constructor(
                         completeCircleColor
                     )
                 unitText = getString(R.styleable.DonutGaugeView_dg_unit_text) ?: ""
+                unitTextSize = getDimensionPixelSize(R.styleable
+                    .DonutGaugeView_dg_unit_text_size, unitTextSize)
                 unitTextColor =
                     getColor(R.styleable.DonutGaugeView_dg_unit_text_color, unitTextColor)
                 topText = getString(R.styleable.DonutGaugeView_dg_top_text) ?: ""
