@@ -36,10 +36,4 @@ object DonutGaugeViewBindingAdapters {
         }
     }
 
-    @BindingAdapter("app:dg_middle_text_color")
-    @JvmStatic
-    fun setMiddleTextColor(view: DonutGaugeView, @ColorRes res: Int) {
-        view.middleTextColor = ContextCompat.getColor(view.context, res)
-    }
-
 }

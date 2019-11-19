@@ -101,6 +101,7 @@
             app:dg_bottom_text_color="@color/colorAccent"
             app:dg_end_value="1000"
             app:dg_front_circle_color="#241255"
+            app:dg_on_exceed_middle_text_color="@color/colorPrimary"
             app:dg_start_value="0"
             app:dg_middle_text_size="30sp"
             app:dg_anim_duration="500"

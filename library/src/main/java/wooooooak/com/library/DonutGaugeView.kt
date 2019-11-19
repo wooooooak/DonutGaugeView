@@ -10,6 +10,7 @@ import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 
 class DonutGaugeView @JvmOverloads constructor(
     private val _context: Context,
@@ -36,7 +37,9 @@ class DonutGaugeView @JvmOverloads constructor(
     private var unitTextColor = ContextCompat.getColor(context, R.color.dg_black)
     private var unitTextSize = resources.getDimensionPixelSize(R.dimen.dg_default_text_size)
 
-    var middleTextColor = ContextCompat.getColor(context, R.color.dg_black)
+    private var paintMiddleTextColor = ContextCompat.getColor(context, R.color.dg_black)
+    private var middleTextColor = ContextCompat.getColor(context, R.color.dg_black)
+    private var onExceedMiddleTextColor = ContextCompat.getColor(context, R.color.dg_blue)
     private var middleTextSize = resources.getDimensionPixelSize(R.dimen.dg_middle_text_size)
 
     var topText = ""
@@ -105,6 +108,7 @@ class DonutGaugeView @JvmOverloads constructor(
     fun updateValue(value: Float) {
         maxValue?.let { total ->
             frontCircleColor = if (value >= total) completeCircleColor else unCompleteCircleColor
+            paintMiddleTextColor = if (value >= total) onExceedMiddleTextColor else middleTextColor
             val startRatio = currentRatio
             val endRatio = (value / total) * 360
             val valueOffset = endRatio - startRatio
@@ -124,7 +128,8 @@ class DonutGaugeView @JvmOverloads constructor(
         // Start Middle Text rendering
         paint.apply {
             textSize = middleTextSize.toFloat()
-            color = middleTextColor
+            color = paintMiddleTextColor
+            typeface = ResourcesCompat.getFont(_context, R.font.noto_sans_semi_bold)
             strokeWidth = 2f
             style = Paint.Style.FILL_AND_STROKE
         }
@@ -179,9 +184,11 @@ class DonutGaugeView @JvmOverloads constructor(
                 }
             }.start()
             frontCircleColor = completeCircleColor
+            paintMiddleTextColor = onExceedMiddleTextColor
             invalidate()
         } else {
             frontCircleColor = unCompleteCircleColor
+            paintMiddleTextColor = middleTextColor
             ValueAnimator.ofFloat(0f, 1f).apply {
                 duration = animationDuration
                 addUpdateListener {
@@ -219,8 +226,10 @@ class DonutGaugeView @JvmOverloads constructor(
                         completeCircleColor
                     )
                 unitText = getString(R.styleable.DonutGaugeView_dg_unit_text) ?: ""
-                unitTextSize = getDimensionPixelSize(R.styleable
-                    .DonutGaugeView_dg_unit_text_size, unitTextSize)
+                unitTextSize = getDimensionPixelSize(
+                    R.styleable
+                        .DonutGaugeView_dg_unit_text_size, unitTextSize
+                )
                 unitTextColor =
                     getColor(R.styleable.DonutGaugeView_dg_unit_text_color, unitTextColor)
                 topText = getString(R.styleable.DonutGaugeView_dg_top_text) ?: ""
@@ -250,6 +259,8 @@ class DonutGaugeView @JvmOverloads constructor(
                 ).toLong()
                 middleTextColor =
                     getColor(R.styleable.DonutGaugeView_dg_middle_text_color, middleTextColor)
+                onExceedMiddleTextColor =
+                    getColor(R.styleable.DonutGaugeView_dg_on_exceed_middle_text_color, middleTextColor)
                 middleTextSize = getDimensionPixelSize(
                     R.styleable.DonutGaugeView_dg_middle_text_size,
                     middleTextSize

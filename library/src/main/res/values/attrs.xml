@@ -11,6 +11,7 @@
         <attr name="dg_unit_text_size" format="dimension|reference" />
         <attr name="dg_middle_text_size" format="dimension|reference" />
         <attr name="dg_middle_text_color" format="color|reference" />
+        <attr name="dg_on_exceed_middle_text_color" format="color|reference" />
         <attr name="dg_unit_text_color" format="color|reference" />
         <attr name="dg_top_text" format="string|reference" />
         <attr name="dg_top_text_color" format="color|reference"/>
