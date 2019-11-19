@@ -36,7 +36,7 @@ class DonutGaugeView @JvmOverloads constructor(
     private var unitTextColor = ContextCompat.getColor(context, R.color.dg_black)
     private var unitTextSize = resources.getDimensionPixelSize(R.dimen.dg_default_text_size)
 
-    private var middleTextColor = ContextCompat.getColor(context, R.color.dg_black)
+    var middleTextColor = ContextCompat.getColor(context, R.color.dg_black)
     private var middleTextSize = resources.getDimensionPixelSize(R.dimen.dg_middle_text_size)
 
     var topText = ""

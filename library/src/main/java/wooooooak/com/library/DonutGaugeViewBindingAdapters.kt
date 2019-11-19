@@ -1,5 +1,7 @@
 package wooooooak.com.library
 
+import androidx.annotation.ColorRes
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 
 
@@ -33,4 +35,11 @@ object DonutGaugeViewBindingAdapters {
             view.initValue(view.currentValue.toFloat(), value)
         }
     }
+
+    @BindingAdapter("app:dg_middle_text_color")
+    @JvmStatic
+    fun setMiddleTextColor(view: DonutGaugeView, @ColorRes res: Int) {
+        view.middleTextColor = ContextCompat.getColor(view.context, res)
+    }
+
 }
