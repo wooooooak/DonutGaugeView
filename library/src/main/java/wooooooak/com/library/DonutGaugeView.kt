@@ -84,7 +84,7 @@ class DonutGaugeView @JvmOverloads constructor(
 
     @SuppressLint("DrawAllocation")
     override fun onDraw(canvas: Canvas?) {
-        canvas?.let { canvas ->
+        canvas?.let {
             val rectF = RectF(40f, 40f, donutSize - 40f, donutSize - 40f)
             val paint = Paint().apply {
                 color = backgroundCircleColor
@@ -92,16 +92,16 @@ class DonutGaugeView @JvmOverloads constructor(
                 style = Paint.Style.STROKE
                 strokeWidth = donutStrokeWidth.toFloat()
             }
-            canvas.drawArc(rectF, 0f, 360f, false, paint)
+            it.drawArc(rectF, 0f, 360f, false, paint)
 
             paint.apply {
                 color = frontCircleColor
                 strokeJoin = Paint.Join.ROUND
                 strokeCap = Paint.Cap.ROUND
             }
-            canvas.drawArc(rectF, -90f, currentRatio, false, paint)
+            it.drawArc(rectF, -90f, currentRatio, false, paint)
 
-            drawInnerContent(paint, canvas)
+            drawInnerContent(paint, it)
         }
     }
 
@@ -116,7 +116,7 @@ class DonutGaugeView @JvmOverloads constructor(
                 duration = animationDuration
                 addUpdateListener {
                     val offset = it.animatedValue as Float
-                    currentRatio = startRatio + (valueOffset * offset)
+                    currentRatio = if (total == 0f) 360f else startRatio + (valueOffset * offset)
                     currentValue += ((value.toInt() - currentValue) * offset).toInt()
                     invalidate()
                 }
