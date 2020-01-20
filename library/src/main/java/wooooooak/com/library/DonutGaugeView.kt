@@ -23,15 +23,16 @@ class DonutGaugeView @JvmOverloads constructor(
 ) {
     var currentValue = 0
     var maxValue: Float? = 1000f
+
+    var backgroundCircleColor = ContextCompat.getColor(context, R.color.dg_background)
+    var frontCircleColor = ContextCompat.getColor(context, R.color.dg_blue)
+    var unCompleteCircleColor = ContextCompat.getColor(context, R.color.dg_blue)
+    var completeCircleColor = ContextCompat.getColor(context, R.color.dg_complete)
+
     private var currentRatio = 0f
 
     private var donutSize = resources.getDimensionPixelSize(R.dimen.donut_size)
     private var donutStrokeWidth = resources.getDimensionPixelSize(R.dimen.donut_stroke_size)
-
-    private var backgroundCircleColor = ContextCompat.getColor(context, R.color.dg_background)
-    private var frontCircleColor = ContextCompat.getColor(context, R.color.dg_blue)
-    private var unCompleteCircleColor = ContextCompat.getColor(context, R.color.dg_blue)
-    private var completeCircleColor = ContextCompat.getColor(context, R.color.dg_complete)
 
     private lateinit var unitText: String
     private var unitTextColor = ContextCompat.getColor(context, R.color.dg_black)
