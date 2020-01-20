@@ -1,8 +1,6 @@
 package wooooooak.com.library
 
-import android.util.Log
 import androidx.annotation.ColorRes
-import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 
 
@@ -40,8 +38,6 @@ object DonutGaugeViewBindingAdapters {
     @BindingAdapter("app:dg_complete_circle_color")
     @JvmStatic
     fun setCompleteCircleColor(view: DonutGaugeView, @ColorRes resource: Int) {
-        Log.d("gg", resource.toString())
         view.completeCircleColor = resource
-//        view.completeCircleColor = ContextCompat.getColor(view.context, resource)
     }
 }

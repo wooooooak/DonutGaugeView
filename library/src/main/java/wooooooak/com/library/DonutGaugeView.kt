@@ -9,6 +9,7 @@ import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
+import android.view.animation.LinearInterpolator
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 
@@ -115,6 +116,7 @@ class DonutGaugeView @JvmOverloads constructor(
             val valueOffset = endRatio - startRatio
             ValueAnimator.ofFloat(0f, 1f).apply {
                 duration = animationDuration
+                interpolator = LinearInterpolator()
                 addUpdateListener {
                     val offset = it.animatedValue as Float
                     currentRatio = if (total == 0f) 360f else startRatio + (valueOffset * offset)
@@ -177,6 +179,7 @@ class DonutGaugeView @JvmOverloads constructor(
         if (_currentValue >= _maxValue) {
             ValueAnimator.ofFloat(0f, 1f).apply {
                 duration = animationDuration
+                interpolator = LinearInterpolator()
                 addUpdateListener {
                     val offset = it.animatedValue as Float
                     currentRatio = 360 * offset
@@ -184,7 +187,7 @@ class DonutGaugeView @JvmOverloads constructor(
                     invalidate()
                 }
             }.start()
-            frontCircleColor = completeCircleColor
+            frontCircleColor = if(maxValue == 0f) unCompleteCircleColor else completeCircleColor
             paintMiddleTextColor = onExceedMiddleTextColor
             invalidate()
         } else {
@@ -192,6 +195,7 @@ class DonutGaugeView @JvmOverloads constructor(
             paintMiddleTextColor = middleTextColor
             ValueAnimator.ofFloat(0f, 1f).apply {
                 duration = animationDuration
+                interpolator = LinearInterpolator()
                 addUpdateListener {
                     val offset = it.animatedValue as Float
                     currentRatio = endRatio * offset
