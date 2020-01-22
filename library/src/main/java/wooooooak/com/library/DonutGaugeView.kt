@@ -32,29 +32,29 @@ class DonutGaugeView @JvmOverloads constructor(
 
     private var currentRatio = 0f
 
-    private var donutSize = resources.getDimensionPixelSize(R.dimen.donut_size)
-    private var donutStrokeWidth = resources.getDimensionPixelSize(R.dimen.donut_stroke_size)
+    var donutSize = resources.getDimensionPixelSize(R.dimen.donut_size)
+    var donutStrokeWidth = resources.getDimensionPixelSize(R.dimen.donut_stroke_size)
 
     private lateinit var unitText: String
-    private var unitTextColor = ContextCompat.getColor(context, R.color.dg_black)
-    private var unitTextSize = resources.getDimensionPixelSize(R.dimen.dg_default_text_size)
+    var unitTextColor = ContextCompat.getColor(context, R.color.dg_black)
+    var unitTextSize = resources.getDimensionPixelSize(R.dimen.dg_default_text_size)
 
-    private var paintMiddleTextColor = ContextCompat.getColor(context, R.color.dg_black)
-    private var middleTextColor = ContextCompat.getColor(context, R.color.dg_black)
-    private var onExceedMiddleTextColor = ContextCompat.getColor(context, R.color.dg_blue)
-    private var middleTextSize = resources.getDimensionPixelSize(R.dimen.dg_middle_text_size)
+    var paintMiddleTextColor = ContextCompat.getColor(context, R.color.dg_black)
+    var middleTextColor = ContextCompat.getColor(context, R.color.dg_black)
+    var onExceedMiddleTextColor = ContextCompat.getColor(context, R.color.dg_blue)
+    var middleTextSize = resources.getDimensionPixelSize(R.dimen.dg_middle_text_size)
 
     var topText = ""
-    private var topTextColor = ContextCompat.getColor(context, R.color.dg_black)
-    private var topTextSize = resources.getDimensionPixelSize(R.dimen.dg_default_text_size)
+    var topTextColor = ContextCompat.getColor(context, R.color.dg_black)
+    var topTextSize = resources.getDimensionPixelSize(R.dimen.dg_default_text_size)
 
     var bottomText = ""
-    private var bottomTextColor = ContextCompat.getColor(context, R.color.dg_gray)
-    private var bottomTextSize = resources.getDimensionPixelSize(R.dimen.dg_default_text_size)
+    var bottomTextColor = ContextCompat.getColor(context, R.color.dg_gray)
+    var bottomTextSize = resources.getDimensionPixelSize(R.dimen.dg_default_text_size)
 
-    private var marginTopMiddleText =
+    var marginTopMiddleText =
         resources.getDimensionPixelSize(R.dimen.dg_top_middle_text_margin)
-    private var marginMiddleBottomText =
+    var marginMiddleBottomText =
         resources.getDimensionPixelSize(R.dimen.dg_middle_bottom_text_margin)
 
     private var animationDuration = 1000L
