@@ -23,7 +23,7 @@ allprojects {
 
 ```
 dependencies {
-    implementation 'com.github.wooooooak:DonutGuageView:$version'
+    implementation 'com.github.wooooooak:DonutGaugeView:$version'
 }
 ```
 
